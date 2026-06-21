@@ -195,8 +195,8 @@ if (AWSSDK_FOUND AND ((NOT DEFINED NR_AWS) OR NR_AWS))
         src/Protocol/AWS/S3Repository.cpp
         src/Protocol/AWS/ProtocolAWS.cpp
     )
-    target_include_directories(NetRocks-AWS PRIVATE src ${AWSSDK_INCLUDE_DIR})
-    target_link_libraries(NetRocks-AWS utils ${AWSSDK_LINK_LIBRARIES})
+    target_include_directories(NetRocks-AWS PRIVATE src ${AWSSDK_INCLUDE_DIR} ${OPENSSL_INCLUDE_DIR})
+    target_link_libraries(NetRocks-AWS utils ${AWSSDK_LINK_LIBRARIES} ${OPENSSL_LIBRARIES})
 
     set_target_properties(NetRocks-AWS
         PROPERTIES
